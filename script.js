@@ -4,26 +4,42 @@ const cpassword = document.querySelector('#c-password')
 const email = document.querySelector('#email')
 const emailErr = document.querySelector('.email')
 const usernameErr = document.querySelector('.username')
+const passwordErr = document.querySelector('.password')
+const passErr = document.querySelector('.password-error')
 const cPassErr = document.querySelector('.c-password')
 const hide = document.querySelectorAll('.hide')
 const SignIn = document.querySelector('#SignIn')
+const Login = document.querySelector('#Login')
+const emailUser = document.querySelector('#emailUser')
 
 const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 const englishPattern = /\b\w*a\w*\b/;
 
+if (emailUser?.value === '' || password?.value === '') {
+    if (Login) {
+        Login.disabled = true
+    }
+}
+
+
+
 function charCount(e, c) {
     const count = e.target.value
     if (count.length <= c) {
-        e.target.nextElementSibling.nextElementSibling.textContent = `It must be ${c} characters!`
+        // e.target.nextElementSibling.nextElementSibling.textContent = `It must be ${c} characters!`
         e.target.classList.add('border')
         e.target.classList.add('border-red-400')
-        SignIn.disabled = true
+        if (SignIn) {
+            SignIn.disabled = true
+        }
         return false
     } else {
-        e.target.nextElementSibling.nextElementSibling.textContent = ``
+        // e.target.nextElementSibling.nextElementSibling.textContent = ``
         e.target.classList.remove('border')
         e.target.classList.remove('border-red-400')
-        SignIn.disabled = false
+        if (SignIn) {
+            SignIn.disabled = false
+        }
         return true
     }
 
@@ -36,7 +52,34 @@ function validateEnglish(letter) {
 }
 const errorElements = document.querySelectorAll('.error');
 
-username.addEventListener('keyup', (e) => {
+password.addEventListener('keyup', (e) => {
+    if (!charCount(e, 6)) {
+        if (passwordErr) {
+            passwordErr.textContent = 'It must be 6 characters'
+        } else if (passErr) {
+            passErr.textContent = 'It must be 6 characters'
+        }
+    } else {
+        if (passwordErr) {
+            passwordErr.textContent = ''
+        } else if (passErr) {
+            passErr.textContent = ''
+        }
+    }
+
+    if (Login) Login.disabled = false
+})
+
+hide.forEach((el) => {
+    el.addEventListener('click', (e) => {
+        if (e.target.previousElementSibling.type == 'password')
+            e.target.previousElementSibling.type = 'text'
+        else
+            e.target.previousElementSibling.type = 'password'
+    })
+})
+
+username?.addEventListener('keyup', (e) => {
     if (!validateEnglish(e.target.value)) {
         usernameErr.textContent = 'Please type english letters!!!'
         e.target.classList.add('border', 'border-red-400');
@@ -52,12 +95,8 @@ username.addEventListener('keyup', (e) => {
     }
 })
 
-password.addEventListener('keyup', (e) => {
-    charCount(e, 6)
 
-})
-
-cpassword.addEventListener('keyup', (e) => {
+cpassword?.addEventListener('keyup', (e) => {
     if (password.value !== e.target.value) {
         cPassErr.textContent = 'confirm password is incorrect'
         e.target.classList.add('border')
@@ -72,7 +111,7 @@ cpassword.addEventListener('keyup', (e) => {
 
 })
 
-email.addEventListener('keyup', (e) => {
+email?.addEventListener('keyup', (e) => {
     if (!validateEmail(e.target.value)) {
         emailErr.textContent = 'Email is not valid'
         e.target.classList.add('border')
@@ -86,17 +125,11 @@ email.addEventListener('keyup', (e) => {
     }
 })
 
-hide.forEach((el) => {
-    el.addEventListener('click', (e) => {
-        if (e.target.previousElementSibling.type == 'password')
-            e.target.previousElementSibling.type = 'text'
-        else
-            e.target.previousElementSibling.type = 'password'
-    })
-})
 
-if (email.value === '' || username.value === '' || password.value === '' || cpassword.value === '') {
-    SignIn.disabled = true
+if (email?.value === '' || username?.value === '' || password?.value === '' || cpassword?.value === '') {
+    if (SignIn) {
+        SignIn.disabled = true
+    }
 }
 
 // if (SignIn.disabled === true) {
