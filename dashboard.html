@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        primary: '#7288FA'
+                    },
+                    boxShadow: {
+                        search: '0 0px 15px 3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+    <title>dashboard</title>
+</head>
+
+<body>
+    <header class="flex justify-around items-center p-8">
+        <div class="flex items-center gap-16 w-1/2">
+            <img src="./img/Logo (2).png" />
+            <div class="relative w-full">
+                <input placeholder="Search..." type="search"
+                    class="p-3 px-8 rounded-full w-full shadow-search outline-none border-none" />
+                <svg width="20" height="20" class="absolute top-4 left-2" viewBox="0 0 20 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="9.16667" cy="9.16667" rx="6.66667" ry="6.66667" stroke="#333F4E" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M13.75 14.1308L17.9167 18.2975" stroke="#333F4E" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <button class="bg-primary text-white rounded-full px-5 cursor-pointer flex gap-2 py-3">
+                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_664_278)">
+                        <path
+                            d="M16.1273 17.2771H11.8363V12.9412H13.2544C13.614 12.9412 13.8265 12.5325 13.614 12.2383L10.8555 8.42138C10.6798 8.17618 10.3161 8.17618 10.1404 8.42138L7.3819 12.2383C7.16939 12.5325 7.37781 12.9412 7.74152 12.9412H9.15958V17.2771H4.3537C2.20821 17.1586 0.5 15.1521 0.5 12.978C0.5 11.4782 1.31324 10.1705 2.5188 9.46347C2.40846 9.16515 2.35125 8.84639 2.35125 8.51129C2.35125 6.9788 3.5895 5.74055 5.12199 5.74055C5.453 5.74055 5.77176 5.79776 6.07009 5.9081C6.95689 4.02825 8.86943 2.72461 11.0926 2.72461C13.9696 2.7287 16.3398 4.93139 16.6095 7.73891C18.8204 8.11897 20.5 10.1664 20.5 12.4835C20.5 14.96 18.5711 17.1055 16.1273 17.2771Z"
+                            fill="white" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_664_278">
+                            <rect width="20" height="20" fill="white" transform="translate(0.5)" />
+                        </clipPath>
+                    </defs>
+                </svg>
+
+                Upload
+            </button>
+            <div class="flex items-center">
+                <img src="./img/Avatar.png" />
+                <h3>Mitchel</h3>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>
