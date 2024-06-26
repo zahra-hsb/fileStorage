@@ -23,13 +23,13 @@
 </head>
 
 <body>
-    <header class="flex justify-around items-center p-8">
-        <div class="flex items-center gap-16 w-1/2">
-            <img src="./img/Logo (2).png" />
+    <header class="flex justify-between sm:justify-around items-center px-5 sm:p-8">
+        <div class="flex items-center gap-5 lg:gap-16 lg:w-1/2">
+            <img src="./img/Logo (2).png" class="min-w-[35%] sm:w-[300px]" />
             <div class="relative w-full">
                 <input placeholder="Search..." type="search"
-                    class="p-3 px-8 rounded-full w-full shadow-search outline-none border-none" />
-                <svg width="20" height="20" class="absolute top-4 left-2" viewBox="0 0 20 20" fill="none"
+                    class="hidden lg:block p-3 px-8 rounded-full w-full shadow-search outline-none border-none" />
+                <svg width="20" height="20" class="lg:absolute top-4 left-2 cursor-pointer " viewBox="0 0 20 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <ellipse cx="9.16667" cy="9.16667" rx="6.66667" ry="6.66667" stroke="#333F4E" stroke-width="1.5"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="flex items-center">
-            <button class="bg-primary text-white rounded-full px-5 cursor-pointer flex gap-2 py-3">
+            <button class="bg-primary text-white rounded-full sm:px-5 cursor-pointer flex gap-2 p-2 sm:py-3">
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_664_278)">
                         <path
@@ -53,11 +53,11 @@
                     </defs>
                 </svg>
 
-                Upload
+                <p class="hidden sm:block">Upload</p>
             </button>
             <div class="flex items-center">
-                <img src="./img/Avatar.png" />
-                <h3>Mitchel</h3>
+                <img class="cursor-pointer" src="./img/Avatar.png" />
+                <h3 class="hidden sm:block">Mitchel</h3>
             </div>
         </div>
     </header>
