@@ -11,6 +11,13 @@ const hide = document.querySelectorAll('.hide')
 const SignIn = document.querySelector('#SignIn')
 const Login = document.querySelector('#Login')
 const emailUser = document.querySelector('#emailUser')
+const card1 = document.querySelector('#card1')
+
+
+const fileModal1 = document.querySelector('#file1')
+const fileModal2 = document.querySelector('#file2')
+const openModal = document.querySelectorAll('.openModal')
+
 
 const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 const englishPattern = /\b\w*a\w*\b/;
@@ -21,6 +28,19 @@ if (emailUser?.value === '' || password?.value === '') {
     }
 }
 
+card1.addEventListener('click', (e) => {
+    e.target.parentElement.classList.toggle('relative')
+    fileModal1.classList.toggle('hidden')
+})
+
+
+// openModal?.forEach(elem => {
+//     elem.addEventListener('click', (e) => {
+//         // console.log(e.target);
+//         e.target.parentElement.classList.toggle('relative')
+//         fileModal1.classList.toggle('hidden')
+//     })
+// })
 
 
 function charCount(e, c) {
@@ -52,7 +72,7 @@ function validateEnglish(letter) {
 }
 const errorElements = document.querySelectorAll('.error');
 
-password.addEventListener('keyup', (e) => {
+password?.addEventListener('keyup', (e) => {
     if (!charCount(e, 6)) {
         if (passwordErr) {
             passwordErr.textContent = 'It must be 6 characters'
